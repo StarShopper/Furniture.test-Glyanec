@@ -25,7 +25,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul,
+p {
     margin: 0;
     padding: 0;
 }
@@ -38,48 +40,193 @@ a {
 li {
     list-style: none;
 }
+button{
+    border: inherit;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+// Header > nav__top
 
 .container {
     max-width: 1818px;
+    padding: 0 15px;
     margin: 0 auto;
-    padding: 0px 50px;
 }
 
-.nav__top {
-    display: flex;
-    justify-content: space-between;
-}
+.nav {
+    padding: 10px 0;
 
-.socials {
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
+    &__top {
+        display: flex;
+        align-items: center;
+        position: relative;
 
-.contacts{
-    align-items: center;
-    & > a > img{
-        width: 25px;
-        height: 25px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            height: 1px;
+            background-color: $main-text-color;
+            margin-bottom: -10px;
+            opacity: 0.6;
+
+        }
+
     }
-}
 
-.page__nav > ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    &__social {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+    }
 
-    padding: 0;
-
-    &>li {
-        margin-left: 15px;
-
+    &__text {
         font-size: 18px;
+        font-weight: 700;
+        line-height: 23px;
+    }
 
+    &__phone {
+        height: 24px;
+        height: 24px;
+        padding: 0 0 0 35px;
+    }
+
+    &__num {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 125%;
+        padding: 0 5px;
+
+    }
+
+    &__links {
+        font-size: 17px;
         text-transform: uppercase;
 
+    }
+
+    &__links>ul {
+        display: flex;
+    }
+
+    &__link {
+        padding-left: 15px;
+
+
+
         &:first-child {
-            margin-left: 0;
+            padding-left: 0;
+        }
+
+        &_active {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                bottom: -5px;
+                height: 3px;
+                background-color: $greenish;
+            }
+
         }
     }
+}
+
+.link {
+    height: 40px;
+    height: 40px;
+    padding: 0 0 0 5px;
+}
+
+.btn {
+
+    &_arrow {
+        height: 24px;
+        height: 24px;
+        border: inherit;
+        background-color: inherit;
+        cursor: pointer;
+    }
+}
+
+// Header > nav__top END
+
+// Header > nav__bottom
+
+.nav {
+
+    .nav__bottom_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+    }
+
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        padding: 23px 0 23px 65px;
+        & > a > img{
+            width: 125px;
+            height: 75px;
+        }
+    }
+
+    .logo {
+
+        &__text {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 125%;
+
+            text-transform: none;
+
+            padding: 15px 0 15px 15px;
+
+            &::first-letter {
+                color: $greenish;
+            }
+        }
+    }
+
+    &__purchase {
+        display: flex;
+
+        .shopper{
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+
+            padding-right: 30px;
+            & img {
+            padding-right: 5px;
+            }
+        }
+    }
+}
+
+
+
+.btn-green {
+    width: 278px;
+    height: 51px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    background-color: $greenish;
+    color: $white;
+    text-transform: uppercase;
+
+    border-radius: 3px;
 }
